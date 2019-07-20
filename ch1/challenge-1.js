@@ -17,7 +17,7 @@
 			switch (userPreference) {
 				case 1:
 
-				headPhoneCost = headPhonePrice + calculateTax(headPhonePrice * tax[0])
+				headPhoneCost = headPhonePrice + calculateTax(headPhonePrice, tax[0])
 				if( (bankAccount - headPhoneCost) > 0 ) {
 					bankAccount -= headPhoneCost
 					totalPrice[0] += headPhoneCost
@@ -25,7 +25,7 @@
 				}
 				break
 				case 2:
-				chargerCost = chargerPrice + calculateTax(chargerPrice * tax[1])
+				chargerCost = chargerPrice + calculateTax(chargerPrice, tax[1])
 				if( (bankAccount - chargerCost) > 0 ) {
 					bankAccount -= chargerCost
 					totalPrice[1] += chargerCost
@@ -33,7 +33,7 @@
 				}
 				break
 				case 3:
-				phonePriceCost = phonePrice + calculateTax(phonePrice * tax[2])
+				phonePriceCost = phonePrice + calculateTax(phonePrice, tax[2])
 				if( (bankAccount - phonePriceCost) > 0 ) {
 					bankAccount -= phonePriceCost
 					totalPrice[2] += phonePriceCost
@@ -57,14 +57,14 @@
 
 		function calculateTax(price, tax){
 			var price = (price*tax)/100
-			console.log(price);
+			console.log(price + 'jjh');
 			return price
 		}
 
 		function formatingPrice(price){
 			var formattedPrice ='$ ' + price.toFixed()
 			console.log(formattedPrice);
-			return formattedPrice
+			// return formattedPrice
 		}
 
 	}
