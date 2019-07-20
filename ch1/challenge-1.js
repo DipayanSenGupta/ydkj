@@ -12,13 +12,14 @@ class PhonePurchase {
     var buyinglog = [0, 0, 0]
     var tax = [5, 7, 10]
     var totalPrice = [0, 0, 0]
-    for (count = 0; this._bankAccount > 0; count++) {
+    var minimum = Math.min(this._phonePrice, this._headPhonePrice, this._chargerPrice)
+
+    for (count = 0; this._bankAccount >= minimum; count++) {
+
       var rndm = Math.floor(Math.random() * set.length)
       var userPreference = set[rndm]
-      var headPhoneCost, chargerCost, phonePriceCost
-     if(this._bankAccount <0) {
-     	console.log('what the fuck !');
-     }
+      var headPhoneCost, chargerCost, phonePriceCost      
+
       switch (userPreference) {
         case 1:
           headPhoneCost = this._headPhonePrice + (this._headPhonePrice * tax[0]) / 100
@@ -49,13 +50,14 @@ class PhonePurchase {
       }
     }
     console.log('Bought headphone ' + buyinglog[0] + ' times')
-    console.log('Ammount cost in buying headphone ' +totalPrice[0] +' + tax')
+    console.log('Amount cost in buying headphone ' +totalPrice[0].toFixed(2) +' ( tax included )')
     console.log('Bought charger ' + buyinglog[1] + ' times')
-    console.log('Ammount cost in buying charger ' +totalPrice[1] +' + tax')
+    console.log('Amount cost in buying charger ' +totalPrice[1].toFixed(2) +' ( tax included )')
     console.log('Bought phone ' + buyinglog[2] + ' times')
-  	console.log('Ammount cost in buying headphon ' +totalPrice[2] +' + tax')
-  	console.log(totalPrice[0] +totalPrice[1]+totalPrice[2])
-  	console.log(this._bankAccount)
+  	console.log('Amount cost in buying headphone ' +totalPrice[2].toFixed(2) +' ( tax included )')
+  	var totalCost = totalPrice[0] +totalPrice[1]+totalPrice[2]
+  	console.log('Total cost '+totalCost.toFixed(2))
+  	console.log('Bank balance left '+this._bankAccount.toFixed(2))
 
   }
 }
