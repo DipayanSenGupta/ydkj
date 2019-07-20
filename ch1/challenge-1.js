@@ -57,14 +57,12 @@
 
 		function calculateTax(price, tax){
 			var price = (price*tax)/100
-			console.log(price + 'jjh');
 			return price
 		}
 
 		function formatingPrice(price){
-			var formattedPrice ='$ ' + price.toFixed()
-			console.log(formattedPrice);
-			// return formattedPrice
+			var formattedPrice ='$' + price.toFixed()
+			return formattedPrice
 		}
 
 	}
