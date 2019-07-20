@@ -60,7 +60,7 @@
 			return price
 		}
 
-		function formatingPrice(price){
+		function formatePrice(price){
 			var formattedPrice ='$' + price.toFixed()
 			return formattedPrice
 		}
