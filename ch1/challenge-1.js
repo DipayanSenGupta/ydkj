@@ -5,7 +5,15 @@ class PhonePurchase {
     this._headPhonePrice = headPhonePrice
     this._chargerPrice = chargerPrice
   }
+  
+  calculateTax(price, tax){
+  	return price = price*tax/100
+  }
 
+  formatingPrice(){
+
+  }
+  
   phonePurchaseAction () {
     var count = 0
     var set = [1, 2, 3]
@@ -22,7 +30,8 @@ class PhonePurchase {
 
       switch (userPreference) {
         case 1:
-          headPhoneCost = this._headPhonePrice + (this._headPhonePrice * tax[0]) / 100
+
+          headPhoneCost = this._headPhonePrice + calculateTax(this._headPhonePrice * tax[0])
           if( (this._bankAccount - headPhoneCost) > 0 ) {
           this._bankAccount -= headPhoneCost
           totalPrice[0] += headPhoneCost
@@ -30,7 +39,7 @@ class PhonePurchase {
           }
           break
         case 2:
-          chargerCost = this._chargerPrice + (this._chargerPrice * tax[1]) / 100
+          chargerCost = this._chargerPrice + calculateTax(this._chargerPrice * tax[1])
           if( (this._bankAccount - chargerCost) > 0 ) {
           this._bankAccount -= chargerCost
           totalPrice[1] += chargerCost
@@ -38,7 +47,7 @@ class PhonePurchase {
           }
           break
         case 3:
-          phonePriceCost = this._phonePrice + (this._phonePrice * tax[2]) / 100
+          phonePriceCost = this._phonePrice + calculateTax(this._phonePrice * tax[2])
           if( (this._bankAccount - phonePriceCost) > 0 ) {
 					this._bankAccount -= phonePriceCost
           totalPrice[2] += phonePriceCost
